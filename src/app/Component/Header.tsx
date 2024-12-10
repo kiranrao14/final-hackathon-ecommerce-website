@@ -38,7 +38,7 @@ const TopHeader = () => {
         </div>
 
         {/* Cart icon, image, and number 2 in one line */}
-        <Link href="/Cart">
+        <Link href="../Cart">
           <div className="flex items-center bg-white px-4 py-2 rounded-lg shadow-md cursor-pointer">
             <FaCartShopping />
             <span className="ml-2 text-black">Cart</span>
@@ -99,10 +99,10 @@ export const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-white px-4 py-2 shadow-md">
           <div className="flex flex-col space-y-4">
-            <Link href="/home" className="text-black">Home</Link>
-            <Link href="../shop" className="text-black">Shop</Link>
-            <Link href="../product" className="text-black">Product</Link>
-            <Link href="../pages" className="text-black">Pages</Link>
+            <Link href="../" className="text-black">Home</Link>
+
+            <Link href="../Product" className="text-black">Product</Link>
+            <Link href="../page" className="text-black">Pages</Link>
             <Link href="../About" className="text-black">About</Link>
             <Link href="../Contact" className="text-black">Contact: (808) 555-0111</Link>
           </div>
