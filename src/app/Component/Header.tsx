@@ -102,7 +102,7 @@ export const Header = () => {
             <Link href="../" className="text-black">Home</Link>
 
             <Link href="../Product" className="text-black">Product</Link>
-            <Link href="../page" className="text-black">Pages</Link>
+            <Link href="../Page" className="text-black">Pages</Link>
             <Link href="../About" className="text-black">About</Link>
             <Link href="../Contact" className="text-black">Contact: (808) 555-0111</Link>
           </div>
