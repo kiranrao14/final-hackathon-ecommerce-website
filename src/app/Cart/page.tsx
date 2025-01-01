@@ -14,21 +14,21 @@ const page = () => {
       <h3 className="text-center my-4">Bag</h3>
 
       {/* Section for the images and summary */}
-      <div className="flex justify-center gap-8 mt-6 mb-6">
+      <div className="flex flex-col sm:flex-row justify-center gap-8 mt-6 mb-6 px-4 sm:px-0">
 
         {/* Left: Images */}
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 sm:w-1/2 w-full">
           {/* First Item */}
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex items-center gap-4 mb-4 w-full">
             <Image src='/images/item-category 1 (1).png' height={150} width={150} alt='' />
             <div>
-              <h4>Library Stool Chair</h4>
-              <p>MRP: $99</p>
-              <p>Ashen Slate/Cobalt Bliss</p>
-              <p>Size: L</p>
-              <p>Quantity: 1</p>
+              <h4 className="text-center sm:text-left">Library Stool Chair</h4>
+              <p className="text-center sm:text-left">MRP: $99</p>
+              <p className="text-center sm:text-left">Ashen Slate/Cobalt Bliss</p>
+              <p className="text-center sm:text-left">Size: L</p>
+              <p className="text-center sm:text-left">Quantity: 1</p>
               {/* Icons for Heart and Delete */}
-              <div className="flex gap-4 mt-2">
+              <div className="flex justify-center sm:justify-start gap-4 mt-2">
                 <RiHeartLine className="text-red-500 cursor-pointer" size={24} />
                 <RiDeleteBinLine className="text-gray-700 cursor-pointer" size={24} />
               </div>
@@ -36,16 +36,16 @@ const page = () => {
           </div>
 
           {/* Second Item */}
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex items-center gap-4 mb-4 w-full">
             <Image src='/images/Category.png' height={150} width={150} alt='' />
             <div>
-              <h4>Library Stool Chair</h4>
-              <p>MRP: $99</p>
-              <p>Ashen Slate/Cobalt Bliss</p>
-              <p>Size: L</p>
-              <p>Quantity: 1</p>
+              <h4 className="text-center sm:text-left">Library Stool Chair</h4>
+              <p className="text-center sm:text-left">MRP: $99</p>
+              <p className="text-center sm:text-left">Ashen Slate/Cobalt Bliss</p>
+              <p className="text-center sm:text-left">Size: L</p>
+              <p className="text-center sm:text-left">Quantity: 1</p>
               {/* Icons for Heart and Delete */}
-              <div className="flex gap-4 mt-2">
+              <div className="flex justify-center sm:justify-start gap-4 mt-2">
                 <RiHeartLine className="text-red-500 cursor-pointer" size={24} />
                 <RiDeleteBinLine className="text-gray-700 cursor-pointer" size={24} />
               </div>
@@ -54,8 +54,8 @@ const page = () => {
         </div>
 
         {/* Right: Summary */}
-        <div className="w-[300px] ml-10 mb-6">
-          <h4>Summary</h4>
+        <div className="w-full sm:w-[300px] ml-0 sm:ml-10 mb-6">
+          <h4 className="text-center sm:text-left">Summary</h4>
           <div className="mb-5 flex justify-between">
             <span>Subtotal</span>
             <span>$198.00</span>
@@ -68,7 +68,7 @@ const page = () => {
             <span>Total</span>
             <span>$198.00</span>
           </div>
-          <button className="bg-[#029FAE] text-white px-4 py-2 rounded-lg mt-4">Member Checkout</button>
+          <button className="bg-[#029FAE] text-white px-4 py-2 rounded-lg mt-4 w-full sm:w-auto">Member Checkout</button>
         </div>
       </div>
 
