@@ -1,23 +1,22 @@
-
-
-'use client'
-import React from 'react';
-import Image from 'next/image';
-import { useState } from 'react';
+"use client";
+import React from "react";
+import Image from "next/image";
+import { useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
-import Link from 'next/link';
+import Link from "next/link";
+import { useCart } from "../context/CartContext";
 
 const TopHeader = () => {
+  const { cart } = useCart();
+
   return (
     <>
-      {/* Removed margin and padding to eliminate the gap */}
       <div className="h-[48px] flex flex-wrap items-center justify-between px-4 sm:px-8 lg:px-24 bg-[rgb(39,35,67)] text-white mb-0">
         <p className="text-sm font-poppins text-center sm:text-left">
           Free shipping on all orders over $50
           <span className="font-semibold underline ml-2">ShopNow</span>
         </p>
 
-        {/* Dropdown moved to the right */}
         <select
           name="select"
           id="select"
@@ -29,29 +28,33 @@ const TopHeader = () => {
         </select>
       </div>
 
-      {/* Main header section */}
-      <div className="bg-white py-4 flex justify-between items-center px-0 sm:px-8 lg:px-24 rounded-lg shadow-md mb-0" style={{ backgroundColor: '#F0F2F3' }}>
-        {/* Comforty image and text on the left */}
+      <div
+        className="bg-white py-4 flex justify-between items-center px-0 sm:px-8 lg:px-24 rounded-lg shadow-md mb-0"
+        style={{ backgroundColor: "#F0F2F3" }}
+      >
         <div className="flex items-center">
-          <Image src='/images/Logo Icon.png' height={40} width={40} alt='Image' />
+          <Image
+            src="/images/Logo Icon.png"
+            height={40}
+            width={40}
+            alt="Image"
+          />
           <span className="ml-2">Comforty</span>
         </div>
 
-        {/* Cart icon, image, and number 2 in one line */}
         <Link href="../Cart">
           <div className="flex items-center bg-white px-4 py-2 rounded-lg shadow-md cursor-pointer">
             <FaCartShopping />
             <span className="ml-2 text-black">Cart</span>
-            <span className="bg-sky-700 text-white w-6 h-6 flex items-center justify-center rounded-full text-xs ml-2">2</span>
+            <span className="bg-sky-700 text-white w-6 h-6 flex items-center justify-center rounded-full text-xs ml-2">
+              {cart.reduce((total, item) => total + item.quantity, 0)}
+            </span>
           </div>
         </Link>
       </div>
     </>
   );
 };
-
-
-
 
 export default TopHeader;
 
@@ -65,16 +68,21 @@ export const Header = () => {
 
   return (
     <>
-      {/* Main header section */}
       <div className=" mt-6 py-4 flex justify-between items-center px-0 sm:px-8 lg:px-24 rounded-lg shadow-md mb-0">
-        {/* Left side: Navigation links - Hidden on small screens, visible on large */}
         <div className="hidden lg:flex space-x-8">
-          <Link href="../" className="text-black hover:text-[#029FAE]">Home</Link>
-          <Link href="../About" className="text-black hover:text-[#029FAE]">About</Link>
+          <Link href="../" className="text-black hover:text-[#029FAE]">
+            Home
+          </Link>
+          <Link href="../About" className="text-black hover:text-[#029FAE]">
+            About
+          </Link>
 
-          <Link href="../Product" className="text-black hover:text-[#029FAE]">Product</Link>
-          <Link href="../Page" className="text-black hover:text-[#029FAE]">Pages</Link>
-
+          <Link href="../Product" className="text-black hover:text-[#029FAE]">
+            Product
+          </Link>
+          <Link href="../Page" className="text-black hover:text-[#029FAE]">
+            Pages
+          </Link>
         </div>
 
         {/* Right side: Contact information */}
@@ -99,12 +107,22 @@ export const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-white px-4 py-2 shadow-md">
           <div className="flex flex-col space-y-4">
-            <Link href="../" className="text-black">Home</Link>
+            <Link href="../" className="text-black">
+              Home
+            </Link>
 
-            <Link href="../Product" className="text-black">Product</Link>
-            <Link href="../Page" className="text-black">Pages</Link>
-            <Link href="../About" className="text-black">About</Link>
-            <Link href="../Contact" className="text-black">Contact: (808) 555-0111</Link>
+            <Link href="../Product" className="text-black">
+              Product
+            </Link>
+            <Link href="../Page" className="text-black">
+              Pages
+            </Link>
+            <Link href="../About" className="text-black">
+              About
+            </Link>
+            <Link href="../Contact" className="text-black">
+              Contact: (808) 555-0111
+            </Link>
           </div>
         </div>
       )}
