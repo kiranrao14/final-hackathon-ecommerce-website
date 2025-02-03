@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 import { useCart } from "../context/CartContext";
@@ -8,14 +7,6 @@ import { useRouter } from "next/navigation";
 import TopHeader from "../Component/Header";
 import { Header } from "../Component/Header";
 import Footer from "../Component/Footer";
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  imageUrl: string;
-}
 
 const Checkout = () => {
   const { cart } = useCart();
@@ -48,13 +39,11 @@ const Checkout = () => {
   };
 
   const validatePhone = (phone: string) => {
-    // Basic validation for phone numbers (assuming US format)
     const phonePattern = /^[0-9]{10}$/;
     return phonePattern.test(phone);
   };
 
   const validateEmail = (email: string) => {
-    // Simple email validation check
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
   };
@@ -96,7 +85,10 @@ const Checkout = () => {
     }
   };
 
-  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   return (
     <>
@@ -105,11 +97,13 @@ const Checkout = () => {
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold mb-6 text-center">Checkout</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Order Summary */}
           <div className="bg-white p-6 shadow-md rounded-lg">
             <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
             {cart.map((item) => (
-              <div key={item.id} className="flex items-center gap-4 border-b py-4">
+              <div
+                key={item.id}
+                className="flex items-center gap-4 border-b py-4"
+              >
                 <Image
                   src={item.imageUrl}
                   alt={`Image of ${item.name}, a product in the cart`}
@@ -119,14 +113,17 @@ const Checkout = () => {
                 />
                 <div>
                   <h3 className="text-lg font-medium">{item.name}</h3>
-                  <p className="text-gray-600">${item.price.toFixed(2)} x {item.quantity}</p>
+                  <p className="text-gray-600">
+                    ${item.price.toFixed(2)} x {item.quantity}
+                  </p>
                 </div>
               </div>
             ))}
-            <h3 className="text-lg font-bold mt-4">Total: ${totalPrice.toFixed(2)}</h3>
+            <h3 className="text-lg font-bold mt-4">
+              Total: ${totalPrice.toFixed(2)}
+            </h3>
           </div>
 
-          {/* Checkout Form */}
           <div className="bg-white p-6 shadow-md rounded-lg">
             <h2 className="text-xl font-semibold mb-4">Shipping Details</h2>
             <form className="space-y-4">
@@ -146,15 +143,15 @@ const Checkout = () => {
                   />
                   {formErrors[key as keyof typeof formErrors] && (
                     <span className="absolute text-red-500 text-sm bottom-[-20px] left-0">
-                      {key === 'email' && !validateEmail(formValues.email)
-                        ? 'Invalid email address'
-                        : key === 'phone' && !validatePhone(formValues.phone)
-                        ? 'Enter a valid phone number'
-                        : key === 'address'
-                        ? 'Address should be at least 5 characters'
-                        : key === 'city'
-                        ? 'City should be at least 3 characters'
-                        : 'Required field'}
+                      {key === "email" && !validateEmail(formValues.email)
+                        ? "Invalid email address"
+                        : key === "phone" && !validatePhone(formValues.phone)
+                          ? "Enter a valid phone number"
+                          : key === "address"
+                            ? "Address should be at least 5 characters"
+                            : key === "city"
+                              ? "City should be at least 3 characters"
+                              : "Required field"}
                     </span>
                   )}
                 </div>

@@ -39,7 +39,9 @@ const TopHeader = () => {
             width={40}
             alt="Image"
           />
-          <span className="ml-2">Comforty</span>
+          <span className="ml-2 font-bold text-lg hover:text-[#029FAE]">
+            Comforty
+          </span>
         </div>
 
         <Link href="../Cart">
@@ -69,7 +71,7 @@ export const Header = () => {
   return (
     <>
       <div className=" mt-6 py-4 flex justify-between items-center px-0 sm:px-8 lg:px-24 rounded-lg shadow-md mb-0">
-        <div className="hidden lg:flex space-x-8">
+        <div className="hidden lg:flex space-x-8 font-bold text-2xl">
           <Link href="../" className="text-black hover:text-[#029FAE]">
             Home
           </Link>
@@ -85,27 +87,27 @@ export const Header = () => {
           </Link>
         </div>
 
-        {/* Right side: Contact information */}
-        <div className="flex items-center text-sm text-black hover:text-[#029FAE]">
+      
+        <div className="flex items-center text-2xl text-black font-bold  hover:text-[#029FAE]">
           <Link href="/Contact ">Contact: (808) 555-0111</Link>
         </div>
 
-        {/* Hamburger Menu Button for Small Screens */}
+    
         <div className="lg:hidden flex items-center">
           <button onClick={toggleMenu} className="text-black">
-            {/* Icon for the hamburger menu */}
+        
             {isMenuOpen ? (
-              <span className="text-xl">&times;</span> // Cross icon when menu is open
+              <span className="text-xl">&times;</span> 
             ) : (
-              <span className="text-xl">&#9776;</span> // Hamburger menu icon
+              <span className="text-xl">&#9776;</span> 
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu: Conditionally render it based on state */}
+      
       {isMenuOpen && (
-        <div className="lg:hidden bg-white px-4 py-2 shadow-md">
+        <div className="lg:hidden bg-white px-4 py-2 shadow-md text-lg font-bold">
           <div className="flex flex-col space-y-4">
             <Link href="../" className="text-black">
               Home

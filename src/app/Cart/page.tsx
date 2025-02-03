@@ -1,4 +1,3 @@
-
 "use client";
 import { Header } from "../Component/Header";
 import TopHeader from "../Component/Header";
@@ -28,9 +27,7 @@ const CartPage = () => {
     addToCart: (item: CartItem) => void;
   } = useCart();
 
-
-
-  const router=useRouter();
+  const router = useRouter();
   const handleProceed = () => {
     Swal.fire({
       title: "Proceed to Checkout?",
@@ -47,7 +44,7 @@ const CartPage = () => {
           text: "Your order has been successfully processed.",
           icon: "success",
         });
-        router.push('/checkout')
+        router.push("/checkout");
       }
     });
   };
@@ -104,8 +101,12 @@ const CartPage = () => {
               />
 
               <div className="flex-grow mt-4 sm:mt-0 sm:ml-6">
-                <h2 className="text-2xl font-semibold text-gray-800">{item.name}</h2>
-                <p className="font-bold text-gray-500 mt-2">${item.price.toFixed(2)}</p>
+                <h2 className="text-2xl font-semibold text-gray-800">
+                  {item.name}
+                </h2>
+                <p className="font-bold text-gray-500 mt-2">
+                  ${item.price.toFixed(2)}
+                </p>
                 <div className="flex items-center mt-4 gap-6">
                   <button
                     onClick={() => addToCart(item)}
@@ -137,7 +138,8 @@ const CartPage = () => {
 
         <div className="flex flex-col sm:flex-row justify-between items-center mt-12 bg-white p-8 rounded-xl shadow-lg">
           <h2 className="text-3xl font-extrabold text-gray-800">
-            Total: <span className="text-blue-600">${totalPrice.toFixed(2)}</span>
+            Total:{" "}
+            <span className="text-blue-600">${totalPrice.toFixed(2)}</span>
           </h2>
           <button
             onClick={handleProceed}
